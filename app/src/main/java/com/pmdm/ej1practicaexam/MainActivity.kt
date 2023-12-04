@@ -18,6 +18,7 @@ class MainActivity : AppCompatActivity() {
         /*Al pulsar el boton de guardar te manda a otra pantalla(actividad) y le pasa un valor a esa pantalla*/
         binding.btnGuardar.setOnClickListener{
             /*combiar entre activities*/
+            /*Intent explicito*/
             val intent =Intent(this,SaludoActivity::class.java)
                 .apply {
                 /*mete en Extra el texto que haya en el editText*/
@@ -25,10 +26,11 @@ class MainActivity : AppCompatActivity() {
            }
             startActivity(intent)
         }
-
+    
         /*Al pulsar el boton de enviar abre un menu para compartir los datos de un editText */
         binding.btnEnviar.setOnClickListener{
             /*Hacer un menu para compartir los datos de un editText*/
+            /*Intent implicito*/
             val sendIntent:Intent=Intent().apply{
                 action = Intent.ACTION_SEND
                 putExtra(Intent.EXTRA_TEXT,binding.editText.text.toString())
